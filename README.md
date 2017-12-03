@@ -1,6 +1,6 @@
 # Barcode detector
 
-Purpose: find EAN-13 bracode on image with opencv lib and decode it
+Purpose: find EAN-13 barcode on image with opencv lib and decode it
 
 Required libs: opencv
 
