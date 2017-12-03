@@ -5,6 +5,7 @@ Purpose: find EAN-13 barcode on image with opencv lib and decode it
 Required libs: opencv
 
 Compilation: g++ main.cpp barcode.cpp -O3 -std=c++14 -o barcode_reader `pkg-config --cflags --libs opencv`
+
 Run: ./barcode_reader <path_to_image>
 
 References: 
