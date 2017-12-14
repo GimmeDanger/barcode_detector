@@ -23,6 +23,7 @@ int main (int argc, char **argv)
   }
   // 1: Load original image
   namedWindow ("Original image", WINDOW_NORMAL);
+  
   Mat orig_im = imread (argv[1]);
   imshow ("Original image", orig_im);
   waitKey (0);
@@ -95,7 +96,7 @@ int find_and_crop_barcode (const Mat &orig_im, Mat &selection_im, Mat &barcode_i
   // Eroding and Dilating FAQ: https://docs.opencv.org/2.4/doc/tutorials/imgproc/erosion_dilatation/erosion_dilatation.html
   // Dilation operator causes bright regions within an image to “grow”
   erode (thresh_im, thresh_im, morph_kernel_im, Point (-1,-1), 2 /*iterations*/);
-  dilate (thresh_im, thresh_im, morph_kernel_im, Point (-1,-1), 2 /*iterations*/);
+  dilate (thresh_im, thresh_im, morph_kernel_im, Point (-1,-1), 2 /*iterations*/);    
 
   // 4: find max area contour and min are rectangular with which contains this contour
   std::vector<std::vector<Point> > contours;
@@ -134,7 +135,7 @@ int find_and_crop_barcode (const Mat &orig_im, Mat &selection_im, Mat &barcode_i
  
   // Output image
   Mat im_out = orig_im.clone ();
-    // Warp source image to destination based on homography
+  // Warp source image to destination based on homography
   warpPerspective (im_out, im_out, h, area_selected_im.size());  
   imshow ("My Window", im_out);
   waitKey (0);
